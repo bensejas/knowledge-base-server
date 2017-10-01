@@ -1,0 +1,27 @@
+{
+  "name": "knowledge-base-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bsejas/knowledge-base-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bsejas/knowledge-base-server/issues"
+  },
+  "homepage": "https://github.com/bsejas/knowledge-base-server#readme",
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  },
+  "dependencies": {
+    "express": "^4.16.1",
+    "mongoose": "^4.11.14"
+  }
+}
