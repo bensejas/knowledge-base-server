@@ -3,6 +3,7 @@ var express = require('express'),
     port = process.env.PORT || 3000,
     mongoose = require('mongoose'),
     Topic = require('./api/models/topicListModel'), //created model loading here
+    // TopicLinks = require('./api/models/topicLinkListModel'), //created model loading here
     bodyParser = require('body-parser');
 
 // mongoose instance connection url connection
@@ -15,6 +16,9 @@ app.use(bodyParser.json());
 
 var routes = require('./api/routes/topicListRoutes'); //importing route
 routes(app); //register the route
+
+// var topicLinkRoutes = require('./api/routes/topicLinkListRoutes'); //importing route
+// topicLinkRoutes(app); //register the route
 
 app.use(function(req, res) {
     res.status(404).send({url: req.originalUrl + ' not found'})
