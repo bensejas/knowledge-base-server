@@ -30,10 +30,17 @@ exports.read_a_topic = function (req, res) {
 };
 
 exports.update_a_topic = function (req, res) {
-    Topic.findOneAndUpdate({_id: req.params.topicId}, req.body, {new: true}, function (err, topic) {
+    Topic.findOneAndUpdate({_id: req.params.topicId}, {$set:{"description":req.body.description, "name":req.body.name}}, {new: true}, function (err, topic) {
         if (err)
             res.send(err);
-        res.json(topic);
+
+        Topic.update({"links.topicId":ObjectId(req.params.topicId)},{$set:{"links.$.name":req.body.name}}, {multi: true}, function (err) {
+            console.log('err:', err);
+            if (err)
+                res.send(err);
+
+            res.json(topic);
+        });
     });
 };
 
